@@ -40,7 +40,7 @@
       color: var(--text);
 
       background:
-        linear-gradient(rgba(2,6,23,.68), rgba(2,6,23,.78)),
+        linear-gradient(rgba(2,6,23,.28), rgba(2,6,23,.45)),
         url("./background.webp") center center / cover fixed no-repeat;
 
       display: flex;
@@ -53,13 +53,19 @@
     .container {
       width: 100%;
       max-width: 460px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .store-photo {
+      display: none;
     }
 
     .card {
       position: relative;
       overflow: hidden;
 
-      background: rgba(8,15,30,.60);
+      background: rgba(8,15,30,.48);
       border: 1px solid var(--border);
 
       backdrop-filter: blur(18px);
@@ -374,6 +380,23 @@
   
     /* نسخه دسکتاپ */
     @media (min-width: 900px) {
+      .store-photo {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        background: url("./background.webp") center center / cover no-repeat;
+        filter: saturate(1.05) contrast(1.02);
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(90deg, rgba(2,6,23,.22), rgba(2,6,23,.55));
+        pointer-events: none;
+      }
       body {
         padding: 40px;
         background-attachment: fixed;
@@ -485,6 +508,8 @@
 </head>
 
 <body>
+
+  <div class="store-photo" aria-label="تصویر سوپرمارکت کمیل"></div>
 
   <main class="container">
 
