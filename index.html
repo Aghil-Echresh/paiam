@@ -40,9 +40,8 @@
       color: var(--text);
 
       background:
-        radial-gradient(circle at 15% 15%, rgba(34,197,94,.18), transparent 30%),
-        radial-gradient(circle at 85% 85%, rgba(59,130,246,.15), transparent 30%),
-        linear-gradient(145deg, var(--bg1), var(--bg2));
+        linear-gradient(rgba(2,6,23,.68), rgba(2,6,23,.78)),
+        url("./background.webp") center center / cover fixed no-repeat;
 
       display: flex;
       justify-content: center;
@@ -60,11 +59,11 @@
       position: relative;
       overflow: hidden;
 
-      background: var(--card);
+      background: rgba(8,15,30,.60);
       border: 1px solid var(--border);
 
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
 
       border-radius: 32px;
       padding: 30px 22px;
@@ -443,87 +442,52 @@
 
   </main>
 
-  <!-- QR Code Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
   <script>
 
     const phoneNumber = "+989030635648";
 
-    /*
-      هیچ متن آماده‌ای وجود ندارد.
-      فقط شماره وارد برنامه پیامک می‌شود.
-    */
-
     const smsLink = "sms:" + phoneNumber;
 
-    // ساخت QR
     new QRCode(document.getElementById("qrcode"), {
-
       text: smsLink,
-
       width: 260,
       height: 260,
-
       colorDark: "#000000",
       colorLight: "#ffffff",
-
       correctLevel: QRCode.CorrectLevel.H
-
     });
 
-
-    // باز کردن برنامه پیامک
     function openSMS() {
-
       window.location.href = smsLink;
-
     }
 
-
-    // دانلود QR
     function downloadQR() {
-
       const img = document.querySelector("#qrcode img");
 
       if (!img) {
-
         alert("QR Code هنوز آماده نشده است.");
         return;
-
       }
 
       const link = document.createElement("a");
 
       link.href = img.src;
-
-      link.download =
-        "QR-SMS-Supermarket-Kamil.png";
+      link.download = "QR-SMS-Supermarket-Kamil.png";
 
       document.body.appendChild(link);
-
       link.click();
-
       document.body.removeChild(link);
-
     }
 
-
-    // کپی شماره
     async function copyNumber() {
-
       try {
-
         await navigator.clipboard.writeText(phoneNumber);
-
         alert("شماره کپی شد ✅");
-
       } catch (error) {
-
         alert("کپی شماره انجام نشد.");
-
       }
-
     }
 
   </script>
