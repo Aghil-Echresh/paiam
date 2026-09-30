@@ -371,6 +371,116 @@
         box-shadow: none;
       }
     }
+  
+    /* نسخه دسکتاپ */
+    @media (min-width: 900px) {
+      body {
+        padding: 40px;
+        background-attachment: fixed;
+      }
+
+      .container {
+        max-width: 1080px;
+      }
+
+      .card {
+        min-height: 620px;
+        padding: 42px 48px;
+        border-radius: 38px;
+        display: grid;
+        grid-template-columns: 430px 1fr;
+        grid-template-areas:
+          "brand brand"
+          "qr content"
+          "qr buttons"
+          "qr footer";
+        column-gap: 54px;
+        row-gap: 12px;
+        align-items: center;
+        text-align: right;
+      }
+
+      .brand {
+        grid-area: brand;
+        justify-content: flex-start;
+        margin-bottom: 12px;
+      }
+
+      .title {
+        grid-area: content;
+        margin: 0;
+        font-size: 34px;
+      }
+
+      .description {
+        grid-area: content;
+        margin: 52px 0 0;
+        max-width: 560px;
+        font-size: 16px;
+      }
+
+      .qr-wrapper {
+        grid-area: qr;
+        width: 390px;
+        height: 390px;
+        padding: 18px;
+        margin: 0 auto;
+      }
+
+      .scan-label {
+        position: absolute;
+        right: 48px;
+        top: 152px;
+        margin: 0;
+      }
+
+      .phone {
+        grid-area: content;
+        width: min(100%, 560px);
+        margin: 118px 0 0;
+        font-size: 18px;
+        padding: 16px;
+      }
+
+      .buttons {
+        grid-area: buttons;
+        width: min(100%, 560px);
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        align-self: start;
+      }
+
+      button {
+        min-height: 52px;
+        font-size: 14px;
+      }
+
+      .footer {
+        grid-area: footer;
+        margin: 0;
+        width: min(100%, 560px);
+        font-size: 12px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .card {
+        grid-template-columns: 470px 1fr;
+        column-gap: 70px;
+        padding: 50px 60px;
+      }
+
+      .qr-wrapper {
+        width: 430px;
+        height: 430px;
+      }
+
+      .scan-label {
+        right: 60px;
+        top: 160px;
+      }
+    }
+
   </style>
 </head>
 
